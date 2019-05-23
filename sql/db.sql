@@ -23,7 +23,7 @@ insert into projects(name, priority, description, deliverydate) values('Make a w
 
 --insert data in tasks
 
-insert into tasks(name, done, projectID) values ('Create UI',false,1);
+insert into tasks(name, done, projectID) values ('define model',false,1);
 
 insert into tasks(name, done, projectID) values ('Download flutter',false,2);
 

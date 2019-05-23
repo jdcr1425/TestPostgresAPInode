@@ -1,4 +1,5 @@
 import express, {json} from 'express';
+import  morgan  from 'morgan';
 
 const app = express();
 
