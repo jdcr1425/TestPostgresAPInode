@@ -1,20 +1,31 @@
-import { Sequelize } from "sequelize";
-import { sequelize } from "../database/database";
-const tasks = sequelize.define('tasks', {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _sequelize = require("sequelize");
+
+var _database = require("../database/database");
+
+var tasks = _database.sequelize.define('tasks', {
   id: {
-    type: Sequelize.INTEGER,
+    type: _sequelize.Sequelize.INTEGER,
     primaryKey: true
   },
   name: {
-    type: Sequelize.TEXT
+    type: _sequelize.Sequelize.TEXT
   },
-  projectId: {
-    type: Sequelize.INTEGER
+  projectid: {
+    type: _sequelize.Sequelize.INTEGER
   },
   done: {
-    type: Sequelize.BOOLEAN
+    type: _sequelize.Sequelize.BOOLEAN
   }
 }, {
   timestamps: false
 });
-export default tasks;
+
+var _default = tasks;
+exports["default"] = _default;

@@ -1,5 +1,15 @@
-import Sequelize from 'sequelize';
-export const sequelize = new Sequelize('postgres', 'postgres', '123456', {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.sequelize = void 0;
+
+var _sequelize = _interopRequireDefault(require("sequelize"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var sequelize = new _sequelize["default"]('postgres', 'postgres', '123456', {
   host: 'localhost',
   dialect: 'postgres',
   pool: {
@@ -10,3 +20,4 @@ export const sequelize = new Sequelize('postgres', 'postgres', '123456', {
   },
   logging: false
 });
+exports.sequelize = sequelize;

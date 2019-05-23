@@ -1,32 +1,48 @@
-import Sequelize from 'Sequelize';
-import { sequelize } from '../database/database';
-import { tasks } from "./tasks";
-const projects = sequelize.define('projects', {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _Sequelize = _interopRequireDefault(require("Sequelize"));
+
+var _database = require("../database/database");
+
+var _tasks = _interopRequireDefault(require("./tasks"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var projects = _database.sequelize.define('projects', {
   id: {
-    type: Sequelize.INTEGER,
+    type: _Sequelize["default"].INTEGER,
     primaryKey: true
   },
   name: {
-    type: Sequelize.TEXT
+    type: _Sequelize["default"].TEXT
   },
   priority: {
-    type: Sequelize.INTEGER
+    type: _Sequelize["default"].INTEGER
   },
   description: {
-    type: Sequelize.TEXT
+    type: _Sequelize["default"].TEXT
   },
   deliverydate: {
-    type: Sequelize.DATE
+    type: _Sequelize["default"].DATE
   }
 }, {
   timestamps: false
 });
-projects.hasMany(tasks, {
-  foreignKey: 'projectId',
+
+projects.hasMany(_tasks["default"], {
+  foreignKey: 'projectid',
   sourceKey: 'id'
 });
-tasks.belongsTo(projects, {
-  foreignKey: 'projectId',
+
+_tasks["default"].belongsTo(projects, {
+  foreignKey: 'projectid',
   sourceKey: 'id'
 });
-export default projects;
+
+var _default = projects;
+exports["default"] = _default;
