@@ -35,10 +35,58 @@ export async function getTasks(req, res) {
 
 }
 
-export function updateTask(req, res) {}
+export async function updateTask(req, res) {
+     
+const {id} = req.params;
+const {name, done, projectid} = req.body;
 
-export function deleteTask(req, res) {}
+const task = await Task.findAll({where: {
+    id:id
+}});
 
-export function getOneTask(req, res) {}
+task.forEach(async task => {
+    await task.update({
+        name,
+        done,
+        projectid
+    })
+});
+
+
+}
+
+export async function deleteTask(req, res) {
+
+    const {id} = req.params;
+
+    const deleteRowCount = await Task.destroy({
+        where:{
+            id:id
+        }
+    });
+
+    res.json({
+        message: 'Task deleted succesfully',
+        count:deleteRowCount
+    })
+
+
+}
+
+export async function getOneTask(req, res) {
+
+    const {id} = req.params;
+
+    const tasks = await Task.findAll({
+        where:{
+            id:id
+        }
+    });
+
+    res.json({
+        tasks
+    })
+
+}
 
 export function getTaskByProject(req, res) {}
