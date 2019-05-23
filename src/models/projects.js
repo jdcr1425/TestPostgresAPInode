@@ -25,8 +25,8 @@ const projects =sequelize.define('projects',{
 
 },{ timestamps:false});
 
-projects.hasMany(tasks,{foreignKey:'projectId',sourceKey:'id'});
+projects.hasMany(tasks,{foreignKey:'projectid',sourceKey:'id'});
 
-tasks.belongsTo(projects,{foreignKey:'projectId',sourceKey:'id'});
+tasks.belongsTo(projects,{foreignKey:'projectid',sourceKey:'id'});
 
 export default projects;

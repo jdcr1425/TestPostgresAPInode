@@ -6,7 +6,7 @@ const app = express();
 
 //importing routes
 import projectRoutes from './routes/projects';
-import tasksRoutes from './routes/projects';
+import tasksRoutes from './routes/tasks';
 
 //
 app.use(morgan('dev'));

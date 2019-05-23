@@ -7,7 +7,7 @@ const tasks =sequelize.define('tasks',{
     name:{
         type:Sequelize.TEXT
     },
-    projectId:{
+    projectid:{
         type:Sequelize.INTEGER
     },
     done:{
